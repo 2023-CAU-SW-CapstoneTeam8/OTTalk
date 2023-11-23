@@ -58,11 +58,14 @@
                 android:background="@color/white"
                 app:labelVisibilityMode="unlabeled"
                 app:itemIconTint="@color/mint"
-                app:menu="@menu/bottom_menu" />
+                app:menu="@menu/bottom_menu" >
+
+            </com.google.android.material.bottomnavigation.BottomNavigationView>
 
         </com.google.android.material.bottomappbar.BottomAppBar>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>
+
 

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "255007339728",
+    "project_id": "ottalk-323b1",
+    "storage_bucket": "ottalk-323b1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:255007339728:android:2904dcf2a809c050219ad5",
+        "android_client_info": {
+          "package_name": "com.example.ottalk"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwk9QLCRF6kQ_U05EtOfzw00Et9EPj8GA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:255007339728:android:2864d83732b0aaed219ad5",
+        "android_client_info": {
+          "package_name": "ps.kotiln.firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwk9QLCRF6kQ_U05EtOfzw00Et9EPj8GA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
