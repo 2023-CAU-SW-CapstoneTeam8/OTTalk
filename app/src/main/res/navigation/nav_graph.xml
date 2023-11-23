@@ -60,4 +60,9 @@
         android:name="com.example.ottalk.Activities.WishlistFragment"
         android:label="fragment_wishlist"
         tools:layout="@layout/fragment_wishlist" />
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.example.ottalk.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
 </navigation>
