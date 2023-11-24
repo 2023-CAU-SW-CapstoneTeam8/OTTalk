@@ -51,6 +51,9 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.navigation:navigation-fragment:2.7.5'
+    implementation 'androidx.navigation:navigation-ui:2.7.5'
+
 
     //navigation jetpack
     def nav_version = "2.5.3"
