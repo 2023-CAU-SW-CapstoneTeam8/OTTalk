@@ -1,4 +1,4 @@
-package com.example.ottalk.Activities;
+package com.example.ottalk;
 
 import android.os.Bundle;
 import android.os.Handler;
