@@ -9,11 +9,11 @@
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label=""
+        android:theme="@style/Theme.Ottalk"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/splashScreenTheme"
-        tools:targetApi="31"
-        tools:replace="android:icon,android:theme,android:allowBackup">
+        android:name=".MyApplication"
+        tools:targetApi="31">
         <activity
             android:name=".LoginActivity"
             android:exported="true">

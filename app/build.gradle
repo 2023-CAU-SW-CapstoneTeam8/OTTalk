@@ -11,7 +11,7 @@ android {
     defaultConfig {
         applicationId "com.example.ottalk"
         minSdk 21
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -35,11 +35,11 @@ android {
     buildscript {
         repositories {
             google()
-            jcenter()
+            mavenCentral()
         }
         dependencies {
-            classpath 'com.android.tools.build:gradle:7.3.0'
-            classpath 'com.google.gms:google-services:4.1.0'
+            classpath 'com.android.tools.build:gradle:7.3.1'
+            classpath 'com.google.gms:google-services:4.4.0'
         }
     }
     buildToolsVersion '33.0.0'
@@ -53,6 +53,8 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment:2.7.5'
     implementation 'androidx.navigation:navigation-ui:2.7.5'
     implementation 'com.google.firebase:firebase-auth:22.3.0'
+    implementation 'com.google.firebase:firebase-firestore:24.9.1'
+    implementation 'com.google.firebase:firebase-database:20.3.0'
 
 
     //navigation jetpack
@@ -62,7 +64,7 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
 
 
-    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.core:core-ktx:1.12.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.10.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
