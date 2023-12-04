@@ -13,15 +13,6 @@
         android:theme="@style/splashScreenTheme"
         tools:targetApi="31">
         <activity
-            android:name=".CommunityActivity"
-            android:exported="false"
-            android:label="@string/title_activity_community"
-            android:theme="@style/splashScreenTheme.NoActionBar">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
