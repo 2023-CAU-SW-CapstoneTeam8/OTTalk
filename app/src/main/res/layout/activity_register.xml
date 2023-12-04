@@ -116,7 +116,6 @@
                 android:textStyle="bold"/>
 
 
-
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
