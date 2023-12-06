@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
                                     Toast.makeText(LoginActivity.this, "이메일과 비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show();
                                 }
                             }
-                        });ㅅ
+                        });
             }
         });
     }

@@ -23,8 +23,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.example.ottalk.Adapters.SliderAdapters;
 import com.example.ottalk.Domain.SliderItems;
 import com.example.ottalk.R;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,27 +70,9 @@ public class HomeFragment extends Fragment {
 
     private void banners() {
         List<SliderItems> sliderItems = new ArrayList<>();
-
-        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-
-        // 예시: Firestore에서 Movies 컬렉션의 문서들을 가져와서 SliderItems 객체를 생성
-        firestore.collection("Movies")
-                .get()
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        for (QueryDocumentSnapshot document : task.getResult()) {
-                            // "thumbnail" 필드에 저장된 이미지 URL을 가져와 SliderItems 객체를 생성
-                            String imageUrl = document.getString("썸네일");
-                            SliderItems sliderItem = new SliderItems(imageUrl);
-
-                            // SliderItems 객체를 리스트에 추가
-                            sliderItems.add(sliderItem);
-                        }
-
-                        // 데이터가 변경되었음을 어댑터에 알림
-                        // adapter.notifyDataSetChanged();
-                    }
-                });
+        sliderItems.add(new SliderItems(R.drawable.wide1));
+        sliderItems.add(new SliderItems(R.drawable.wide2));
+        sliderItems.add(new SliderItems(R.drawable.wide3));
 
         viewPager2.setAdapter(new SliderAdapters(sliderItems, viewPager2));
         viewPager2.setClipToPadding(false);
