@@ -1,17 +1,14 @@
 package com.example.ottalk.Domain;
 
 public class SliderItems {
-    private int image;
+    private String imageUrl; // 이미지 URL을 저장할 변수
 
-    public SliderItems(int image) {
-        this.image = image;
+    public SliderItems(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
-    public int getImage() {
-        return image;
-    }
-
-    public void setImage(int image) {
-        this.image = image;
+    public String getImageUrl() {
+        return imageUrl;
     }
 }
+
