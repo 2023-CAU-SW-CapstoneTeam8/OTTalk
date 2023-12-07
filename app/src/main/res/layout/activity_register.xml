@@ -89,6 +89,56 @@
                 android:inputType="text"
                 />
 
+            <!-- 성별 선택 Spinner -->
+            <Spinner
+                android:id="@+id/spinner_gender"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/edittext_background"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:spinnerMode="dropdown"/>
+
+            <!-- 연령대 선택 Spinner -->
+            <Spinner
+                android:id="@+id/spinner_age"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/edittext_background"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:spinnerMode="dropdown"/>
+
+            <!-- MBTI 선택 Spinner -->
+            <Spinner
+                android:id="@+id/spinner_mbti"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/edittext_background"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:spinnerMode="dropdown"/>
+
+
+            <EditText
+                android:id="@+id/register_favorite_movie"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="선호 영화1, 선호 영화2, 선호 영화3"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey"
+                android:background="@drawable/edittext_background"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:inputType="text"
+                />
+
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/registerbutton"
                 style="@android:style/Widget.Button"
