@@ -67,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-
         Button HomeButton = findViewById(R.id.toolbar_logo);
         HomeButton.setOnClickListener(new View.OnClickListener(){
             @Override

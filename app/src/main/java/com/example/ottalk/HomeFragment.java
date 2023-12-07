@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
@@ -27,6 +28,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
@@ -72,16 +74,18 @@ public class HomeFragment extends Fragment {
                 List<Contents> contentsList = new ArrayList<>();
 
                 for (QueryDocumentSnapshot document : task.getResult()) {
-                    String name = document.getString("name");
-                    String id = createDocumentId(name);
-
                     Contents content = document.toObject(Contents.class);
+                    String id = createDocumentId(content.getName());
                     content.setId(id);
                     contentsList.add(content);
                 }
 
+                Collections.shuffle(contentsList);
+
+                List<Contents> randomContentsList = contentsList.subList(0, Math.min(contentsList.size(), 5));
+
                 loading1.setVisibility(View.GONE);
-                adapterHotContents = new FilmListAdapter(contentsList);
+                adapterHotContents = new FilmListAdapter(randomContentsList);
                 recyclerViewHotContents.setAdapter(adapterHotContents);
             } else {
                 loading1.setVisibility(View.GONE);
@@ -91,6 +95,10 @@ public class HomeFragment extends Fragment {
     }
 
     private String createDocumentId(String name) {
+        if (name == null) {
+            return "";
+        }
+
         return name.replaceAll("[^A-Za-z0-9]", "");
     }
 

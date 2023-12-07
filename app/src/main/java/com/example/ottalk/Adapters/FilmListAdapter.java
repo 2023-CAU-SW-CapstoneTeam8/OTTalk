@@ -40,7 +40,7 @@ public class FilmListAdapter extends RecyclerView.Adapter<FilmListAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.titleTxt.setText(items.get(position).getName()); // 변경된 부분: getId() 대신 getName()을 사용
+        holder.titleTxt.setText(items.get(position).getName());
         RequestOptions requestOptions = new RequestOptions();
         requestOptions = requestOptions.transform(new CenterCrop(), new RoundedCorners(30));
 
@@ -51,10 +51,11 @@ public class FilmListAdapter extends RecyclerView.Adapter<FilmListAdapter.ViewHo
 
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(holder.itemView.getContext(), DetailActivity.class);
-            intent.putExtra("id", items.get(position).getId());
+            intent.putExtra("content", items.get(position)); // Pass the entire Contents object
             context.startActivity(intent);
         });
     }
+
 
     @Override
     public int getItemCount() {

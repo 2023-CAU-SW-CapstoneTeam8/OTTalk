@@ -1,8 +1,11 @@
 package com.example.ottalk.Domain;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 
-public class Contents {
+public class Contents implements Parcelable {
     private String id;
     private List<String> actor;
     private String ageRating;
@@ -14,10 +17,8 @@ public class Contents {
     private String synopsis;
     private String time;
 
-    // 기본 생성자는 Firestore에서 데이터를 가져올 때 필요합니다.
     public Contents() {}
 
-    // 여러분의 데이터 구조에 맞게 생성자를 조정하세요.
     public Contents(String id, List<String> actor, String ageRating, List<String> genre, String name, String image, String ratePercent, String rateStar, String synopsis, String time) {
         this.id = id;
         this.actor = actor;
@@ -31,6 +32,31 @@ public class Contents {
         this.time = time;
     }
 
+    protected Contents(Parcel in) {
+        id = in.readString();
+        actor = in.createStringArrayList();
+        ageRating = in.readString();
+        genre = in.createStringArrayList();
+        name = in.readString();
+        image = in.readString();
+        ratePercent = in.readString();
+        rateStar = in.readString();
+        synopsis = in.readString();
+        time = in.readString();
+    }
+
+    public static final Creator<Contents> CREATOR = new Creator<Contents>() {
+        @Override
+        public Contents createFromParcel(Parcel in) {
+            return new Contents(in);
+        }
+
+        @Override
+        public Contents[] newArray(int size) {
+            return new Contents[size];
+        }
+    };
+
     public String getId() {
         return id;
     }
@@ -38,6 +64,7 @@ public class Contents {
     public void setId(String id) {
         this.id = id;
     }
+
 
     public List<String> getActor() {
         return actor;
@@ -51,7 +78,7 @@ public class Contents {
         return genre;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
@@ -73,5 +100,24 @@ public class Contents {
 
     public String getTime() {
         return time;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeStringList(actor);
+        dest.writeString(ageRating);
+        dest.writeStringList(genre);
+        dest.writeString(name);
+        dest.writeString(image);
+        dest.writeString(ratePercent);
+        dest.writeString(rateStar);
+        dest.writeString(synopsis);
+        dest.writeString(time);
     }
 }
