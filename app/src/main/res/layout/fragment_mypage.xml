@@ -13,7 +13,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:id="@+id/profileImg"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:src="@drawable/ic_baseline_person_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/user_state"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:text="Hello World"
         android:textColor="@color/grey"
         android:textSize="20sp"
@@ -158,24 +158,24 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="5dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/profile_name_tag"
                 android:layout_weight="1"
-                android:text="Name"
+                android:text="UID"
                 android:textStyle="bold"
                 android:textColor="@color/mint"
                 android:textSize="18sp"/>
 
             <TextView
+                android:id="@+id/profileName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/profileName"
-                android:text="name"
                 android:layout_weight="1"
+                android:text="name"
                 android:textAlignment="viewEnd"
                 android:textColor="@color/mint"
-                android:textSize="18sp"/>
+                android:textSize="14sp" />
 
         </LinearLayout>
 
@@ -190,7 +190,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="6dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/profile_email_tag"
                 android:layout_weight="1"
@@ -207,10 +207,27 @@
                 android:layout_weight="1"
                 android:textAlignment="viewEnd"
                 android:textColor="@color/mint"
-                android:textSize="18sp"/>
+                android:textSize="14sp"/>
 
         </LinearLayout>
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/editButton_mypage"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/mint"
+        android:gravity="center"
+        android:text="수정하기"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/linearLayout"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout"
+        app:layout_constraintVertical_bias="0.15" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
