@@ -13,7 +13,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="USER01"
+        android:text="name"
+        android:id="@+id/sidemenu_username"
         android:textColor="@color/mint"
         android:textSize="30sp"
         android:textStyle="bold"/>

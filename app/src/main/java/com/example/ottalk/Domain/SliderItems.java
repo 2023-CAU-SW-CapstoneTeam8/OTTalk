@@ -14,4 +14,7 @@ public class SliderItems {
     public void setImage(int image) {
         this.image = image;
     }
+
+    public static class Movie {
+    }
 }

@@ -2,6 +2,7 @@ package com.example.ottalk;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,10 +18,13 @@ import androidx.viewpager2.widget.CompositePageTransformer;
 import androidx.viewpager2.widget.MarginPageTransformer;
 import androidx.viewpager2.widget.ViewPager2;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.StringRequest;
+import com.example.ottalk.Adapters.FilmListAdapter;
 import com.example.ottalk.Adapters.SliderAdapters;
+import com.example.ottalk.Domain.Contents;
 import com.example.ottalk.Domain.SliderItems;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,20 +33,22 @@ public class HomeFragment extends Fragment {
     private ViewPager2 viewPager2;
     private Handler slideHandler = new Handler();
 
-    //backend
-    private RecyclerView.Adapter adapterHotContents;
+    private FirebaseFirestore firestore;
+    private CollectionReference moviesCollection;
+    private FilmListAdapter adapterHotContents;
     private RecyclerView recyclerViewHotContents;
-    private RequestQueue mRequestQueue;
-    private StringRequest mStringRequest;
     private ProgressBar loading1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        getContext().getTheme().applyStyle(R.style.Theme_Ottalk, true);
-
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         initView(view);
         banners();
+
+        firestore = FirebaseFirestore.getInstance();
+        moviesCollection = firestore.collection("movies1");
+
+        sendRequest();
 
         TextView textViewNew = view.findViewById(R.id.textView_new);
         textViewNew.setOnClickListener(new View.OnClickListener() {
@@ -55,8 +61,37 @@ public class HomeFragment extends Fragment {
             }
         });
 
-
         return view;
+    }
+
+    private void sendRequest() {
+        loading1.setVisibility(View.VISIBLE);
+
+        moviesCollection.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                List<Contents> contentsList = new ArrayList<>();
+
+                for (QueryDocumentSnapshot document : task.getResult()) {
+                    String name = document.getString("name");
+                    String id = createDocumentId(name);
+
+                    Contents content = document.toObject(Contents.class);
+                    content.setId(id);
+                    contentsList.add(content);
+                }
+
+                loading1.setVisibility(View.GONE);
+                adapterHotContents = new FilmListAdapter(contentsList);
+                recyclerViewHotContents.setAdapter(adapterHotContents);
+            } else {
+                loading1.setVisibility(View.GONE);
+                Log.i("UI", "Error: " + task.getException().toString());
+            }
+        });
+    }
+
+    private String createDocumentId(String name) {
+        return name.replaceAll("[^A-Za-z0-9]", "");
     }
 
     private void initView(View view) {

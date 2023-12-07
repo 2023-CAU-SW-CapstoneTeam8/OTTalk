@@ -18,7 +18,7 @@
         android:theme="@style/Theme.Ottalk"
         tools:targetApi="31">
         <activity
-            android:name=".ProfileActivity"
+            android:name=".DetailActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
