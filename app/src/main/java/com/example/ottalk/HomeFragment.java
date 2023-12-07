@@ -1,6 +1,5 @@
 package com.example.ottalk;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -22,7 +21,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.example.ottalk.Adapters.SliderAdapters;
 import com.example.ottalk.Domain.SliderItems;
-import com.example.ottalk.R;
 
 import java.util.ArrayList;
 import java.util.List;
