@@ -38,11 +38,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         fAuth = FirebaseAuth.getInstance();
 
-        if (fAuth.getCurrentUser() != null) {
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            finish();
-        }
-
         TextView textViewGotoRegister = findViewById(R.id.textView_gotoLogin);
         textViewGotoRegister.setOnClickListener(new View.OnClickListener() {
             @Override

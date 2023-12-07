@@ -29,14 +29,6 @@ public class LoginActivity extends AppCompatActivity {
 
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
-        TextView textViewGotoRegister = findViewById(R.id.textView_gotoRegister);
-        textViewGotoRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),RegisterActivity.class));
-            }
-        });
-
         final EditText user_email = findViewById(R.id.editTextText);
         final EditText user_password = findViewById(R.id.editTextPassword);
         final Button loginBtn = findViewById(R.id.loginbutton);
@@ -69,5 +61,15 @@ public class LoginActivity extends AppCompatActivity {
                         });
             }
         });
+
+        TextView textViewGotoRegister = findViewById(R.id.textView_gotoRegister);
+        textViewGotoRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),RegisterActivity.class));
+                finish();
+            }
+        });
+
     }
 }
