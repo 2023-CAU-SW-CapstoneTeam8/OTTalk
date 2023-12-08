@@ -72,4 +72,10 @@ public class FilmListAdapter extends RecyclerView.Adapter<FilmListAdapter.ViewHo
             pic = itemView.findViewById(R.id.pic);
         }
     }
+
+    public void setItems(List<Contents> newItems) {
+        this.items = newItems;
+        notifyDataSetChanged();
+    }
+
 }

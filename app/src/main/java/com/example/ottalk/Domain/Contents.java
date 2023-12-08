@@ -17,6 +17,8 @@ public class Contents implements Parcelable {
     private String synopsis;
     private String time;
 
+    private List<String> favoriteMovie;
+
     public Contents() {}
 
     public Contents(String id, List<String> actor, String ageRating, List<String> genre, String name, String image, String ratePercent, String rateStar, String synopsis, String time) {
@@ -119,5 +121,14 @@ public class Contents implements Parcelable {
         dest.writeString(rateStar);
         dest.writeString(synopsis);
         dest.writeString(time);
+    }
+
+
+    public List<String> getFavoriteMovie() {
+        return favoriteMovie;
+    }
+
+    public void setFavoriteMovie(List<String> favoriteMovie) {
+        this.favoriteMovie = favoriteMovie;
     }
 }
