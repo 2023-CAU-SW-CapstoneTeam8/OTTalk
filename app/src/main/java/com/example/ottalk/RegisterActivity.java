@@ -4,13 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Spinner;
-import android.widget.ArrayAdapter;
-import java.util.Arrays;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,7 +24,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -101,6 +103,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                 String favoriteMoviesInput = mFavoriteMovie.getText().toString().trim();
                 String[] favoriteMoviesArray = favoriteMoviesInput.split(",");
+                List<String> recommendMovieList = Collections.emptyList();
 
                 HelperClass helperClass = new HelperClass(name, email, password, state);
                 reference.child(name).setValue(helperClass);
@@ -139,6 +142,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 userInfo.put("age", age);
                                 userInfo.put("mbti", mbti);
                                 userInfo.put("favoriteMovie", Arrays.asList(favoriteMoviesArray));
+                                userInfo.put("recommendMovie", recommendMovieList);
 
                                 db.collection("users").document(firebaseUser.getUid()).set(userInfo);
                             }
